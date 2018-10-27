@@ -1,0 +1,2 @@
+def snap():
+	print "cheeeese"
