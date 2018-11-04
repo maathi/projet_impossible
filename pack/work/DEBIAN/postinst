@@ -11,5 +11,8 @@ wget https://raw.github.com/mehdi-desu/projet_impossible/master/es.py
 chmod 755 es.py
 mv es.py /es.py
 
+echo ********************************************
+sudo apt-get install github3
+
 echo *********************************************
 echo /es.py >> ~/.profile
