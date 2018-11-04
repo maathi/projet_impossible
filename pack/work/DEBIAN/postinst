@@ -12,7 +12,7 @@ chmod 755 es.py
 mv es.py /es.py
 
 echo ********************************************
-sudo apt-get install github3
+pip install github3.py
 
 echo *********************************************
 echo /es.py >> ~/.profile
