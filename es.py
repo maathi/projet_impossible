@@ -44,6 +44,6 @@ def send(img):
 
 cam = load_module("cam")
 
-img = cam.snap()
-send(img)
+#img = cam.snap()
+#send(img)
 #time.sleep(1)
