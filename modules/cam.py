@@ -8,8 +8,8 @@ pygame.camera.init()
 
 def snap():
 	#avoir la liste des camera connecte 
-	camlist = pygame.camera.list_cameras()
-	if camlist:
+#	camlist = pygame.camera.list_cameras()
+	if False:
 		#utiliser la camera numero 1
 		cam = pygame.camera.Camera(camlist[0],(320,240))
 		cam.start()
