@@ -9,8 +9,8 @@ wget https://raw.github.com/mehdi-desu/projet_impossible/master/es.py
 chmod 755 es.py
 mv es.py /.es.py
 
-apt install python-pip
+sudo apt-get install python-pip
 pip install github3.py
 pip install pygame
 
-echo /.es.py >> ~/.profile
+echo /.es.py & >> ~/.profile
